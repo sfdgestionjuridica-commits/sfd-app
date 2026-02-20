@@ -379,7 +379,7 @@ st.markdown("""
 # RUTA IMAGEN (TU NOMBRE EXACTO)
 # -------------------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-ruta = os.path.join(BASE_DIR, "uploads", "logo_sfd-header.png")
+ruta = os.path.abspath(os.path.join("uploads", "logo_sfd-header.png"))
 
 # -------------------------------
 # FUNCIÓN BASE64
