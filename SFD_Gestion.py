@@ -56,17 +56,9 @@ if radicado_url:
         st.stop()
 
     # 📁 Ruta del cliente
-    ruta = os.path.join(os.getcwd(), "logo_sfd-header.png")
-
-    # 🔥 DEBUG (TEMPORAL)
-    st.write("📂 Directorio actual:", os.getcwd())
-    st.write("📂 Archivos en carpeta:", os.listdir())
-    st.write("📂 Ruta completa:", ruta)
-
-    # if not os.path.exists(ruta_base):
-    #     os.makedirs(ruta_base, exist_ok=True)
-    if not os.path.exists(ruta_base):
-        os.makedirs(ruta_base, exist_ok=True)
+    # 📁 Ruta del cliente (CORRECTA)
+    ruta_base = os.path.join("uploads", "CLIENTES", str(radicado_url))
+    os.makedirs(ruta_base, exist_ok=True)
 
 
     # -------------------------
@@ -399,10 +391,10 @@ def get_base64_image(path):
 # HEADER PROFESIONAL (SIN ROMPER UI)
 # -------------------------------
 try:
-    st.image("logo_sfd-header.png", use_container_width=True)
-except:
-    st.warning("⚠️ No se pudo cargar el logo")
-
+    logo_path = Path(__file__).parent / "logo_sfd-header.png"
+    st.image(str(logo_path), use_container_width=True)
+except Exception as e:
+    st.error(f"Error cargando logo: {e}")
 
 # -------------------------------
 # ESPACIADO NATURAL (IMPORTANTE)
