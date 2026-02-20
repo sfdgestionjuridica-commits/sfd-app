@@ -380,8 +380,7 @@ st.markdown("""
 # -------------------------------
 # RUTA IMAGEN (TU NOMBRE EXACTO)
 # -------------------------------
-BASE_DIR = Path(__file__).parent
-ruta = BASE_DIR / "uploads" / "logo_sfd-header.png"
+ruta = Path(__file__).parent / "logo_sfd-header.png"
 
 # 👇 PONLO AQUÍ
 st.write("📂 Ruta usada:", ruta)
@@ -398,7 +397,7 @@ def get_base64_image(path):
 # -------------------------------
 # HEADER PROFESIONAL (SIN ROMPER UI)
 # -------------------------------
-if ruta.exists():
+if os.path.exists(ruta):
     img_base64 = get_base64_image(ruta)
 
     st.markdown(f"""
