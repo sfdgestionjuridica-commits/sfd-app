@@ -2,6 +2,7 @@ import sys
 import os
 import base64
 import pathlib
+from pathlib import Path
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
@@ -379,8 +380,8 @@ st.markdown("""
 # -------------------------------
 # RUTA IMAGEN (TU NOMBRE EXACTO)
 # -------------------------------
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-ruta = os.path.abspath(os.path.join("uploads", "logo_sfd-header.png"))
+BASE_DIR = Path(__file__).parent
+ruta = BASE_DIR / "uploads" / "logo_sfd-header.png"
 
 # 👇 PONLO AQUÍ
 st.write("📂 Ruta usada:", ruta)
@@ -397,7 +398,7 @@ def get_base64_image(path):
 # -------------------------------
 # HEADER PROFESIONAL (SIN ROMPER UI)
 # -------------------------------
-if os.path.exists(ruta):
+if ruta.exists():
     img_base64 = get_base64_image(ruta)
 
     st.markdown(f"""
