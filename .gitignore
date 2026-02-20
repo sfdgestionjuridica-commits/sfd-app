@@ -1,4 +1,2 @@
-uploads/
-__pycache__/
-*.pyc
-.env
+uploads/*
+!uploads/logo_sfd-header.png
