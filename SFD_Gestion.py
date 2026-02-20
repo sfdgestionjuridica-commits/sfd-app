@@ -458,7 +458,7 @@ telefono_envio = st.text_input("Número de WhatsApp del cliente (con indicativo 
 
 if telefono_envio:
 
-    link_formulario1 = generar_link_formulario1()
+    link_formulario1 = generar_link_formulario1(random.randint(10000,99999))
 
     mensaje = f"""📄 Bienvenido(a) a SFD Gestión Jurídica
 
@@ -967,4 +967,5 @@ if "paso" in st.session_state:
         scroll_to("paso3")
     elif st.session_state.paso == 4:
         scroll_to("paso4")
+
 
