@@ -380,12 +380,6 @@ st.markdown("""
 # -------------------------------
 # RUTA IMAGEN (TU NOMBRE EXACTO)
 # -------------------------------
-ruta = Path(__file__).parent / "logo_sfd-header.png"
-
-# 👇 PONLO AQUÍ
-st.write("📂 Ruta usada:", ruta)
-st.write("📂 Existe archivo:", os.path.exists(ruta))
-
 
 # -------------------------------
 # FUNCIÓN BASE64
@@ -397,36 +391,11 @@ def get_base64_image(path):
 # -------------------------------
 # HEADER PROFESIONAL (SIN ROMPER UI)
 # -------------------------------
-if os.path.exists(ruta):
-    img_base64 = get_base64_image(ruta)
+try:
+    st.image("logo_sfd-header.png", use_container_width=True)
+except:
+    st.warning("⚠️ No se pudo cargar el logo")
 
-    st.markdown(f"""
-        <style>
-        /* SOLO HEADER - NO TOCAR INPUTS */
-        .header-container {{
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            background-color: white;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            border-bottom: 2px solid #C8A95A; /* línea dorada elegante */
-        }}
-
-        .header-container img {{
-            width: 100%;
-            height: auto;
-            display: block;
-        }}
-        </style>
-
-        <div class="header-container">
-            <img src="data:image/png;base64,{img_base64}">
-        </div>
-    """, unsafe_allow_html=True)
-
-else:
-    st.error("⚠️ No se encontró la imagen en uploads/logo_sfd-header.png")
 
 # -------------------------------
 # ESPACIADO NATURAL (IMPORTANTE)
