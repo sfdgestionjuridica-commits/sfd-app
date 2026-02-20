@@ -56,8 +56,15 @@ if radicado_url:
         st.stop()
 
     # 📁 Ruta del cliente
-    ruta_base = os.path.join("uploads", "CLIENTES", radicado_url)
+    ruta = os.path.join(os.getcwd(), "logo_sfd-header.png")
 
+    # 🔥 DEBUG (TEMPORAL)
+    st.write("📂 Directorio actual:", os.getcwd())
+    st.write("📂 Archivos en carpeta:", os.listdir())
+    st.write("📂 Ruta completa:", ruta)
+
+    # if not os.path.exists(ruta_base):
+    #     os.makedirs(ruta_base, exist_ok=True)
     if not os.path.exists(ruta_base):
         os.makedirs(ruta_base, exist_ok=True)
 
