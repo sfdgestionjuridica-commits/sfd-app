@@ -1,6 +1,7 @@
 import sys
 import os
 import base64
+import pathlib
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
@@ -380,6 +381,11 @@ st.markdown("""
 # -------------------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ruta = os.path.abspath(os.path.join("uploads", "logo_sfd-header.png"))
+
+# 👇 PONLO AQUÍ
+st.write("📂 Ruta usada:", ruta)
+st.write("📂 Existe archivo:", os.path.exists(ruta))
+
 
 # -------------------------------
 # FUNCIÓN BASE64
