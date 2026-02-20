@@ -55,8 +55,7 @@ if radicado_url:
         st.error("❌ No se recibió el radicado en la URL")
         st.stop()
 
-    # 📁 Ruta del cliente
-    # 📁 Ruta del cliente (CORRECTA)
+        # 📁 Ruta del cliente (CORRECTA)
     ruta_base = os.path.join("uploads", "CLIENTES", str(radicado_url))
     os.makedirs(ruta_base, exist_ok=True)
 
@@ -392,7 +391,7 @@ def get_base64_image(path):
 # -------------------------------
 try:
     logo_path = Path(__file__).parent / "logo_sfd-header.png"
-    st.image(str(logo_path), use_container_width=True)
+    st.image(str(logo_path), width="stretch")
 except Exception as e:
     st.error(f"Error cargando logo: {e}")
 
