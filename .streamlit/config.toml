@@ -1,0 +1,9 @@
+[theme]
+base="light"
+
+primaryColor="#0A2540"                # Azul jurídico profundo
+backgroundColor="#FFFFFF"            # Fondo blanco limpio
+secondaryBackgroundColor="#F4F6F8"   # Gris elegante
+textColor="#0A2540"                  # Texto oscuro profesional
+
+font="serif"

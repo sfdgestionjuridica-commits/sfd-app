@@ -249,6 +249,43 @@ def generar_link_formulario2(radicado):
 # 1. Configuración de Poder y Estética
 st.set_page_config(page_title="SFD Gestión Jurídica", page_icon="⚖️", layout="wide")
 
+st.markdown("""
+<style>
+
+/* Fondo general */
+.stApp {
+    background-color: #0e1117;
+}
+
+/* Texto general */
+html, body, [class*="css"] {
+    color: #FAFAFA;
+}
+
+/* Inputs */
+input, textarea {
+    background-color: #262730 !important;
+    color: #FAFAFA !important;
+    border-radius: 8px !important;
+}
+
+/* Botones */
+.stButton>button {
+    background-color: #c9a14a;
+    color: black;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* Labels */
+label {
+    color: #FAFAFA !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+
 # -------------------------------
 # 📲 PANEL DE ENVÍO DE FORMULARIO 1 (INTERNO)
 # -------------------------------
@@ -364,16 +401,6 @@ def cargar_datos_colombia():
 
 datos_colombia = cargar_datos_colombia()
 
-st.markdown("""
-    <style>
-    .stApp { background-color: white !important; }
-    .nombre-presencia { color: #003366 !important; font-family: 'Playfair Display', serif !important; font-size: 80px !important; font-weight: 900 !important; line-height: 0.9 !important; margin: 0 !important; }
-    .subtitulo-sutil { color: #777777 !important; font-family: 'Arial', sans-serif !important; font-size: 14px !important; text-transform: uppercase !important; letter-spacing: 4px !important; }
-    .linea-poder { border-bottom: 5px solid #003366; margin: 20px 0px 40px 0px; }
-    label { color: #003366 !important; font-weight: bold !important; }
-    </style>
-    """, unsafe_allow_html=True)
-
 # Encabezado Supremo SFD
 # -------------------------------
 # RUTA IMAGEN (TU NOMBRE EXACTO)
@@ -386,14 +413,33 @@ def get_base64_image(path):
     with open(path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode()
 
-# -------------------------------
-# HEADER PROFESIONAL (SIN ROMPER UI)
-# -------------------------------
-try:
-    logo_path = Path(__file__).parent / "logo_sfd-header.png"
-    st.image(str(logo_path), width="stretch")
-except Exception as e:
-    st.error(f"Error cargando logo: {e}")
+# LOGO
+
+logo_path = Path(__file__).parent / "logo_sfd-header.png"
+
+col1, col2, col3 = st.columns([1,2,1])
+
+with col2:
+    st.image(str(logo_path), width=600)
+
+st.markdown("""
+<div style="
+    background: linear-gradient(to right, #c9a646, #f5d27a);
+    height: 4px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border-radius: 2px;
+"></div>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<h2 style='text-align: center; color: #ffffff;'>
+SFD Gestión Jurídica
+</h2>
+<p style='text-align: center; color: #c9a646; letter-spacing: 2px;'>
+COMPROMISO • ESTRATEGIA • RESULTADOS
+</p>
+""", unsafe_allow_html=True)
 
 # -------------------------------
 # ESPACIADO NATURAL (IMPORTANTE)
